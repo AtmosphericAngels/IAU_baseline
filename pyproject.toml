@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "IAU_baseline"
+version = "0.0.2"
+description = "Tools for the baseline/outlier filter or pollution detection algorithm"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+  { name = "IAU", email = "diederich@iau.uni-frankfurt.de" },
+]
+license = { text = "GNU General Public License v3 (GPLv3)" }
+keywords = ["baseline", "outlier", "pollution", "filter", "detection"]
+
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+  "Operating System :: OS Independent",
+]
+
+dependencies = [
+  "pandas>=1.0.0",
+  "numpy",
+  "matplotlib",
+  "scipy"
+]
+
+[project.urls]
+Homepage = "https://github.com/thdieder/IAU_baseline.git"

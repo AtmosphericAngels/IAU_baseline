@@ -18,7 +18,7 @@ Depending on your data you need to adjust the time values to either datetime for
 `x_val`, `y_val` and `y_err` need to be lists. 
 
 ```
-base.find_ol(func=IAU.fct.higher, x_val = datetime, y_val = mole_fraction, y_err = stdev_of_molefraction , flag= None)
+base.find_ol(func=base.fct.higher, x_val = datetime, y_val = mole_fraction, y_err = stdev_of_molefraction , flag= None)
 ```
 
 ### Example

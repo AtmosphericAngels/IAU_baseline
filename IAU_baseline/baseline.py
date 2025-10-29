@@ -20,7 +20,7 @@ from IAU_baseline import ctrl_plots as cp
 # =============================================================================
 # outlier identification outer loop
 # =============================================================================
-def find_ol(func: fct, x_val: list, y_val: list, y_err: list, flag: Sequence[int],
+def find_base(func: fct, x_val: list, y_val: list, y_err: list, flag: Sequence[int],
             direction: str='p', verbose: bool=True, plot: bool=False, ctrl_plots: bool=False, limit: float=0.1,
             stop_rel: bool=True, post_prc_filter: bool=True):
     """

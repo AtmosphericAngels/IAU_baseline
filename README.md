@@ -5,7 +5,7 @@ The module is able to classify between baseline and pollution events, depending 
 ### Installation
 
 ```
-pip install -e git+https://github.com/AtmosphericAngels/IAU_baseline.git
+pip install git+https://github.com/AtmosphericAngels/IAU_baseline.git
 ```
 
 ### Usage

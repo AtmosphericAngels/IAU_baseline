@@ -7,7 +7,7 @@ name = "IAU_baseline"
 version = "1.0.0"
 description = "Tools for the baseline/filter"
 readme = "README.md"
-requires-python = "=>=3.13"
+requires-python = "=>=3.9"
 authors = [
   { name = "IAU", email = "schuck@iau.uni-frankfurt.de" },
 ]

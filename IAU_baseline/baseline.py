@@ -432,7 +432,7 @@ def ol_wrapper(func: fct, x_val: Sequence[float], y_val: Sequence[float], y_err:
                 print('boundaries', start_idx[i], end_idx[i], start_idx[i]-tmp_start, end_idx[i]-tmp_start)
                 print('interval length', end_idx[i]+1-start_idx[i], end_idx[i]-tmp_start+1 -(start_idx[i]-tmp_start))
 
-            tmp = find_ol(func, tmp_x_val, tmp_y_val, tmp_y_err, tmp_flag, direction=direction,
+            tmp = find_base(func, tmp_x_val, tmp_y_val, tmp_y_err, tmp_flag, direction=direction,
                           verbose=verbose, plot=False, ctrl_plots=False, limit=limit, stop_rel=stop_rel)
             new_sub_flag = tmp[0]
             new_sub_baseline = tmp[4]

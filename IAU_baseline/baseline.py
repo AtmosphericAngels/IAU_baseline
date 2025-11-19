@@ -240,21 +240,63 @@ def ol_wrapper(func: fct, x_val: Sequence[float], y_val: Sequence[float], y_err:
                plot: bool=True, direction='p', verbose: bool=True, limit: float=0.1, stop_rel: bool=True,
                sub_time: int=None, sub_len: int=0, n_sliding: int=3, post_prc_filter: bool=True, test: bool=False):
     """
-    parameters are defined as in find_ol except plot
-    plot does a final control plot showing outliers colour coded by flag and final baseline fit
-    additional:
-    sub_time: a time interval defining how the timeseries is cut into subsets
+    Parameters
+    ----------
+    func : fct
+        fitfunction to use from ol_fir_functions (e.g. fct.higher) 
+    
+    x_val : list
+        list of x values (e.g. time)
+    
+    y_val : list 
+        list of y values (e.g. mole fraction)
+
+    y_err : list
+        list of absolute error values of y values (e.g. stdev of mole fraction)
+    
+    flag : list
+        list containg outlier identification flags from a previous run, will be created and initialized
+        with flag = len(y_val)*[0] if flag is None
+
+    direction : str
+        identifying outliers above or below the baseline or both 
+        'p' - above baseline, 'n' below baseline, 'pn' above and below
+
+    plot : bool
+        Toggle plot output of baseline
+
+    ctrl_plots : bool
+        Toggle additional control plot output 
+
+    limit : float
+        stop criterion for outlier search. if the residual changes by less than the limit value,
+        no outliers will be identified. Defaluts to 0.1
+
+    stop_rel : bool
+        if True, stop iterative outlier detection accorindg to relative change of the
+        st.dev. as prescribed by limit, if False, the value supplied as limit will be used as absolute criterion
+    
+    sub_time : int
+        a time interval defining how the timeseries is cut into subsets
         sub_time has to be a relativedelta object. E. g. sub_time = relativedelta(months=6)
-    sub_len: a number of elements defining how the timeseries is cut into subsets
-    only sub_time OR sub_len may be provided
-    n_sliding: the number of intervals to be used for a sliding interval calculation
+        
+    sub_len : int
+        a number of elements defining how the timeseries is cut into subsets
+        only sub_time OR sub_len may be provided
+    
+    n_sliding : int
+        the number of intervals to be used for a sliding interval calculation
         default is 3, i.e. that 1 interval after and 1 before will be included to detect outliers
         but only results from the central interval will be used
         for the first/last interval x subsequent/preceding ones will be used for outlier detection
         n_sliding should be an odd number
-    post_prc_filter: if True data identified as outliers with large error bars will be unflagged (3*precision criterion)
+        
+    post_prc_filter : bool
+        if True data identified as outliers with large error bars will be unflagged (3*precision criterion)
         (effective for abssolute stop criterion only)
-    test=True will result in no fitting performed but data series cutting point reported
+        
+    test : bool
+        True will result in no fitting performed but data series cutting point reported
 
     find_ol can cope with d_mxr and flag being None
     """
